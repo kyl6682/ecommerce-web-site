@@ -7,22 +7,20 @@ import SearchInput from '../components/common/SearchInput'
 import { Link } from 'react-router-dom'
 import useDevice from '../hooks/useDevice'
 import Hamburger from '../assets/icons/Hamburger'
+import { Wrapper } from '../styles/CommonStyle'
 
-const Wrapper = styled.div`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: ${({ padding }) => padding || '16px 16px'};
-`
+const StyledWrapper = styled(Wrapper)`
+  padding: ${(props) => props.$padding}; 
+`;
 
 const NavItems = styled.div`
   display: flex;
   gap: 24px;
-`
+`;
 
 const NavBar = ({ isPC, isTablet }) => {
   return (
-    <Wrapper padding={isPC ? '16px 160px' : isTablet ? '16px 40px' : '16px 16px'}>
+    <StyledWrapper $padding={isPC ? '16px 160px' : isTablet ? '16px 40px' : '16px 16px'}>
       <Link to={'/'}>
         <Logo color={'black'} />
       </Link>
@@ -39,13 +37,13 @@ const NavBar = ({ isPC, isTablet }) => {
       ) : (
         <Hamburger />
       )}
-    </Wrapper>
-  )
-}
+    </StyledWrapper>
+  );
+};
 
 function Header() {
-  const { isMobile, isTablet, isPC } = useDevice()
-  return <NavBar isPC={isPC} isTablet={isTablet} isMobile={isMobile} />
+  const { isMobile, isTablet, isPC } = useDevice();
+  return <NavBar isPC={isPC} isTablet={isTablet} isMobile={isMobile} />;
 }
 
-export default Header
+export default Header;
