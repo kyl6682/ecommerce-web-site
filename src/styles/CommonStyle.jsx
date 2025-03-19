@@ -4,5 +4,7 @@ export const Wrapper = styled.div`
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: ${({ padding }) => padding || '16px 16px'};
+  padding: ${( props ) => props.$padding || '16px 16px'};
+  flex-direction: ${(props) => props.$direction || 'row'};
+
 `
