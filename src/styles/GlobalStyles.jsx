@@ -30,6 +30,9 @@ export const GlobalStyles = createGlobalStyle`
             outline: none;
         }
     } 
+    a {
+        text-decoration: none;
+    }
     button, svg {
         cursor: pointer;
         &:hover {
