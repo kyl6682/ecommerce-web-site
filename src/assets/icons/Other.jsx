@@ -3,7 +3,7 @@ const Other = ({ color = "black", size = 48 }) => {
     <svg
     width={size}
     height={size}
-    viewBox=' 0 0 16 16'
+    viewBox=' 0 0 48 48'
     fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
