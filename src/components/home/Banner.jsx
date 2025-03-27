@@ -2,11 +2,12 @@ import styled from 'styled-components'
 import { Wrapper } from '../../styles/CommonStyle'
 import { BlackStrokeButton } from './PromotionsPC'
 import { WhiteStrokeButton } from './Hero'
+import useDevice from '../../hooks/useDevice'
 
 const ItemWrapper = styled(Wrapper)`
   flex-direction: column;
-  width: 25%;
-  height: 552px;
+  width: ${(props) => props.$width || '25%'};
+  height: ${(props) => props.$height || '552px'};
   background-color: ${(props) => props.$background || 'white'};
   padding: 32px;
   img {
@@ -30,31 +31,36 @@ const ItemContent = styled(Wrapper)`
 `
 
 function Banner() {
+  const { isMobile } = useDevice()
+
   return (
-    <Wrapper>
-      <ItemWrapper>
-        <img src='#' />
-        <ItemContent>
+    <Wrapper $direction={isMobile ? 'column' : 'row'}>
+      <ItemWrapper $width={isMobile?'100%' : '25%'} $background={isMobile ? undefined : 'white'}>
+        <img src='#' alt='clothes' />
+        <ItemContent $color={isMobile ? undefined : 'black'}>
           <h3>Clothes</h3>
           <BlackStrokeButton>Shop Now</BlackStrokeButton>
         </ItemContent>
       </ItemWrapper>
-      <ItemWrapper>
-        <img src='#' />
+
+      <ItemWrapper $width={isMobile?'100%' : '25%'}>
+        <img src='#' alt='electronics' />
         <ItemContent>
           <h3>Electronics</h3>
           <BlackStrokeButton>Shop Now</BlackStrokeButton>
         </ItemContent>
       </ItemWrapper>
-      <ItemWrapper $background='#EAEAEA'>
-        <img src='#' />
+
+      <ItemWrapper $width={isMobile?'100%' : '25%'} $background='#EAEAEA'>
+        <img src='#' alt='furniture' />
         <ItemContent>
           <h3>Furniture</h3>
           <BlackStrokeButton>Shop Now</BlackStrokeButton>
         </ItemContent>
       </ItemWrapper>
-      <ItemWrapper $background='#2C2C2C'>
-        <img src='#' />
+
+      <ItemWrapper $width={isMobile?'100%' : '25%'} $background='#2C2C2C'>
+        <img src='#' alt='shoes' />
         <ItemContent $color='white'>
           <h3>Shoes</h3>
           <WhiteStrokeButton $padding='12px 40px' $width='191px'>
