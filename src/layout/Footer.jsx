@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import Logo from '../assets/logo'
+import Logo from '../assets/Logo'
 import { Wrapper } from '../styles/CommonStyle'
 import { Tweeter } from '../assets/icons/Tweeter'
 import { Facebook } from '../assets/icons/Facebook'
