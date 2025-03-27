@@ -7,29 +7,34 @@ import TShirt from "../../assets/icons/T-Shirt"
 
 export const categories = [ 
     {
-        id : 1,
-        name : "T-shirt",
-        icon : TShirt,
-        link : "#"
-    }, {
-        id : 2,
-        name : "Electronics",
-        icon : Electronics,
-        link : "#"
-    }, {
-        id : 3,
-        name : "Furniture",
-        icon : Furniture,
-        link : "#"
-    }, {
-        id : 4,
-        name : "Shoes",
-        icon : Shoes,
-        link : "#"
-    }, {
-        id : 5,
-        name : "Other",
-        icon : Other,
-        link : "#"
+      id: 1,
+      name: "T-shirt",
+      icon: TShirt,
+      link: '/category/clothes',
     },
-]
+    {
+      id: 2,
+      name: "Electronics",
+      icon: Electronics,
+      link: '/category/electronics',
+    },
+    {
+      id: 3,
+      name: "Furniture",
+      icon: Furniture,
+      link: '/category/furniture',
+    },
+    {
+      id: 4,
+      name: "Shoes",
+      icon: Shoes,
+      link: '/category/shoes',
+    },
+    {
+      id: 5,
+      name: "Other",
+      icon: Other,
+      link: '/category/other',
+    },
+  ]
+  
