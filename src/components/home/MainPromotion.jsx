@@ -1,9 +1,9 @@
 import styled from 'styled-components'
-import { WhiteStrokeButton } from './Hero'
-import { Wrapper } from '../../styles/CommonStyle'
+import { WhiteStrokeButton } from './Hero.jsx'
+import { Wrapper } from '../../styles/CommonStyle.jsx'
 import MainPromotionPC from '../../assets/images/MainPromotion.png'
 import MainPromotionMobile from '../../assets/images/MainPromotionMobile.png'
-import useDevice from '../../hooks/useDevice'
+import useDevice from '../../hooks/useDevice.jsx'
 
 const PromotionWrapper = styled(Wrapper)`
   position: relative;

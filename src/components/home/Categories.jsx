@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Wrapper } from '../../styles/CommonStyle'
 import { Link } from 'react-router-dom'
-import { categories } from '../common/Categories'
+import { categories } from '../common/CategoriesData.jsx'
 
 const CategoryWrapper = styled(Wrapper)`
   flex-direction: column;

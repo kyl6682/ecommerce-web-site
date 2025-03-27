@@ -4,7 +4,7 @@ import PlayStation from '../../assets/images/PlayStation.png'
 import Headphone from '../../assets/images/Headphone.png'
 import VisionPro from '../../assets/images/VisionPro.png'
 import MacBookPro14 from '../../assets/images/MacBookPro14.png'
-import { BlackStrokeButton } from './PromotionsPC'
+import { BlackStrokeButton } from './PromotionsPC.jsx'
 
 const GridWrapper = styled.div`
   display: grid;

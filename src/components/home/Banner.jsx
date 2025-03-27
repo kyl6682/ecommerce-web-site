@@ -1,8 +1,8 @@
 import styled from 'styled-components'
-import { Wrapper } from '../../styles/CommonStyle'
-import { BlackStrokeButton } from './PromotionsPC'
-import { WhiteStrokeButton } from './Hero'
-import useDevice from '../../hooks/useDevice'
+import { Wrapper } from '../../styles/CommonStyle.jsx'
+import { BlackStrokeButton } from './PromotionsPC.jsx'
+import { WhiteStrokeButton } from './Hero.jsx'
+import useDevice from '../../hooks/useDevice.jsx'
 
 const ItemWrapper = styled(Wrapper)`
   flex-direction: column;

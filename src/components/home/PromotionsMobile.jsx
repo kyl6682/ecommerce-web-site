@@ -1,10 +1,10 @@
 import styled from 'styled-components'
-import { Wrapper } from '../../styles/CommonStyle'
+import { Wrapper } from '../../styles/CommonStyle.jsx'
 import PlayStation from '../../assets/images/Playstation_Mobile.png'
 import Headphone from '../../assets/images/Headphone_Mobile.png'
 import VisionPro from '../../assets/images/VisionPro_Mobile.png'
 import MacBookPro14 from '../../assets/images/MacBookPro14_Mobile.png'
-import { BlackStrokeButton } from './PromotionsPC'
+import { BlackStrokeButton } from './PromotionsPC.jsx'
 
 const PromotionWrapper = styled(Wrapper)`
   flex-direction: column;

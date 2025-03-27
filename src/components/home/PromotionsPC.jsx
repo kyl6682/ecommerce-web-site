@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { Wrapper } from '../../styles/CommonStyle'
+import { Wrapper } from '../../styles/CommonStyle.jsx'
 import PlayStation from '../../assets/images/PlayStation.png'
 import Headphone from '../../assets/images/Headphone.png'
 import VisionPro from '../../assets/images/VisionPro.png'

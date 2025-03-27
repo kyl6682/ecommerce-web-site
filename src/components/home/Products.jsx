@@ -1,10 +1,7 @@
 import styled from 'styled-components'
-import { Wrapper } from '../../styles/CommonStyle'
-import ProductCard from '../common/ProductCard'
-import ProductCards from '../common/ProductCards'
-import { Link } from 'react-router-dom'
-import { categories } from '../common/categories'
-// import { useState } from 'react'
+import { Wrapper } from '../../styles/CommonStyle.jsx'
+import ProductCards from '../common/ProductCards.jsx'
+import { categories } from '../common/CategoriesData.jsx'
 
 const ProductWrapper = styled(Wrapper)`
   padding: 40px 160px;

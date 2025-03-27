@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import IphoneImage from '../../assets/images/IphoneImage.png'
 import { Wrapper } from '../../styles/CommonStyle'
-import useDevice from '../../hooks/useDevice'
+import useDevice from '../../hooks/useDevice.jsx'
 
 export const WhiteStrokeButton = styled.button`
   padding: ${(props) => props.$padding || "24px 56px"};

@@ -1,7 +1,7 @@
-import useDevice from "../../hooks/useDevice"
-import PromotionsMobile from "./PromotionsMobile"
-import PromotionsPC from "./PromotionsPC"
-import PromotionsTablet from "./PromotionsTablet"
+import useDevice from "../../hooks/useDevice.jsx"
+import PromotionsMobile from "./PromotionsMobile.jsx"
+import PromotionsPC from "./PromotionsPC.jsx"
+import PromotionsTablet from "./PromotionsTablet.jsx"
 
 function Promotions() {
     const { isMobile, isTablet, isPC } = useDevice()
