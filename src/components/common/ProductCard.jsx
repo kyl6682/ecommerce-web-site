@@ -1,7 +1,7 @@
-import styled from "styled-components"
-import { Wrapper } from "../../styles/CommonStyle"
+import styled from 'styled-components'
+import { Wrapper } from '../../styles/CommonStyle'
 import Favorite from '../../assets/icons/Favorite'
-import { useState } from "react"
+import { useState } from 'react'
 
 const ItemWrapper = styled(Wrapper)`
   flex-direction: column;
@@ -12,6 +12,7 @@ const ItemWrapper = styled(Wrapper)`
   position: relative;
   padding: 16px 24px;
 `
+
 const ItemInfo = styled(Wrapper)`
   flex-direction: column;
   gap: 16px;
@@ -35,28 +36,39 @@ const BlackFillButton = styled.button`
   margin-top: 24px;
 `
 
-const ProductCard = () => {
+const ProductCard = ({ product }) => {
   const [isFavorite, setIsFavorite] = useState(false)
 
   return (
     <ItemWrapper>
-      <div style={{ alignSelf: 'end' }}>
+      <div style={{ alignSelf: 'end', cursor: 'pointer' }}>
         <span onClick={() => setIsFavorite(prev => !prev)}>
-        {isFavorite ?  <Favorite color="red" fill="red"/> : <Favorite />}
+          {isFavorite ? (
+            <Favorite color="red" fill="red" />
+          ) : (
+            <Favorite />
+          )}
         </span>
       </div>
+
       <div
         style={{
-            width : "160px",
-            height: "160px",
-            objectFit: "fill"
+          width: '160px',
+          height: '160px',
+          objectFit: 'fill',
+          alignSelf: 'center',
         }}
       >
-        <img src='#' />
+        <img
+          src={product?.images?.[0]}
+          alt={product?.title}
+          style={{ width: '100%', height: '100%', objectFit: 'contain' }}
+        />
       </div>
+
       <ItemInfo>
-        <h3>Item Name</h3>
-        <p>$ Price</p>
+        <h3>{product?.title}</h3>
+        <p>${product?.price}</p>
         <BlackFillButton>Buy Now</BlackFillButton>
       </ItemInfo>
     </ItemWrapper>
