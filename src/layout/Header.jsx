@@ -2,12 +2,12 @@ import styled from 'styled-components'
 import Cart from '../assets/icons/Cart'
 import Favorite from '../assets/icons/Favorite'
 import User from '../assets/icons/User'
-import Logo from '../assets/logo'
 import SearchInput from '../components/common/SearchInput'
 import { Link } from 'react-router-dom'
 import useDevice from '../hooks/useDevice'
 import Hamburger from '../assets/icons/Hamburger'
 import { Wrapper } from '../styles/CommonStyle'
+import Logo from '../assets/Logo.jsx'
 
 const StyledWrapper = styled(Wrapper)`
   padding: ${(props) => props.$padding}; 
