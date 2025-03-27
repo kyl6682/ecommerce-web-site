@@ -6,5 +6,6 @@ export const Wrapper = styled.div`
   align-items: center;
   padding: ${( props ) => props.$padding || '0'};
   flex-direction: ${(props) => props.$direction || 'row'};
+  background-color: ${(props) => props.$backgroundcolor || 'auto'};
 
 `

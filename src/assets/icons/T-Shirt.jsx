@@ -3,8 +3,8 @@ const TShirt = ({ color = 'black', size = 48 }) => {
     <svg
     width={size}
     height={size}
-    viewBox={`0 0 ${size} ${size}`}
-      fill='none'
+    viewBox=' 0 0 16 16'
+    fill='none'
       xmlns='http://www.w3.org/2000/svg'
     >
       <g clipPath='url(#clip0_201_93317)'>

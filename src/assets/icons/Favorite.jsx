@@ -3,7 +3,7 @@ const Favorite = ({ color = "black", fill = "none", size = 32 }) => {
     <svg
       width={size}
       height={size}
-      viewBox={`0 0 ${size} ${size}`}
+      viewBox=' 0 0 16 16'
       fill={fill}
       xmlns='http://www.w3.org/2000/svg'
     >
