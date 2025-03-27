@@ -22,10 +22,10 @@ const ProductsFilter = styled.ul`
     list-style: none;
     color: #8b8b8b;
     &:hover {
-      color: black;
+        color: black;
     }
     &:active {
-      color: black;
+        color: black;
       text-decoration: underline 2px solid black;
       text-underline-offset: 5px;
     }
@@ -38,7 +38,7 @@ function MainProducts() {
       <ProductsFilter>
         <li>all</li>
         {categories.map((el) => {
-          return <li id={el.id}>{el.name}</li>
+          return <li key={el.id} id={el.id}>{el.name}</li>
         })}
       </ProductsFilter>
       <ProductCards />

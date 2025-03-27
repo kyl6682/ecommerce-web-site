@@ -9,7 +9,6 @@ export const BlackStrokeButton = styled.button`
   border: 1px solid black;
   padding: 12px 40px;
   border-radius: 7px;
-  margin: 16px 0;
   width: 191px;
 `
 

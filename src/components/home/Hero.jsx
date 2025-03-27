@@ -3,13 +3,13 @@ import IphoneImage from '../../assets/images/IphoneImage.png'
 import { Wrapper } from '../../styles/CommonStyle'
 import useDevice from '../../hooks/useDevice'
 
-const WhiteStrokeButton = styled.button`
-  padding: 24px 56px;
+export const WhiteStrokeButton = styled.button`
+  padding: ${(props) => props.$padding || "24px 56px"};
   color: #fff;
   font-size: 16px;
   border: 1px solid #fff;
   border-radius: 6px;
-  margin-top: 24px;
+  width: ${(props) => props.$width || "auto"};
 `
 
 const HeroWrapper = styled(Wrapper)`
