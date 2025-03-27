@@ -16,7 +16,7 @@ function ProductCards({ selectedBrands }) {
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error loading products</p>
 
-  const filteredProducts = selectedBrands.length
+  const filteredProducts = selectedBrands && selectedBrands.length
     ? products.filter((product) =>
         selectedBrands.includes(product?.category?.name)
       )
