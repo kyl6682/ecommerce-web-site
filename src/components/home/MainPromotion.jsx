@@ -3,7 +3,7 @@ import { WhiteStrokeButton } from './Hero.jsx'
 import { Wrapper } from '../../styles/CommonStyle.jsx'
 import MainPromotionPC from '../../assets/images/MainPromotion.png'
 import MainPromotionMobile from '../../assets/images/MainPromotionMobile.png'
-import useDevice from '../../hooks/useDevice.jsx'
+import useDevice from '../../hooks/useDevice.js'
 
 const PromotionWrapper = styled(Wrapper)`
   position: relative;

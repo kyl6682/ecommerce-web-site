@@ -1,4 +1,4 @@
-import useDevice from "../../hooks/useDevice.jsx"
+import useDevice from "../../hooks/useDevice.js"
 import PromotionsMobile from "./PromotionsMobile.jsx"
 import PromotionsPC from "./PromotionsPC.jsx"
 import PromotionsTablet from "./PromotionsTablet.jsx"
