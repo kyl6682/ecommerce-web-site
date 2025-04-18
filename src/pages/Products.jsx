@@ -6,6 +6,7 @@ import BreadCrumbs from '../components/products/BreadCrumbs'
 import { useProducts } from '../hooks/useProducts'
 import SidebarFilter from '../components/products/SidebarFilter'
 import useInfiniteScroll from '../hooks/useInfiniteScroll'
+import { useEffect } from 'react'
 
 const PageWrapper = styled(Wrapper)`
   flex-direction: column;
@@ -20,10 +21,20 @@ const ContentWrapper = styled(Wrapper)`
 `
 const ProductsPage = () => {
   const [page, setPage] = useState(1)
+  const [hasMore, setHasMore] = useState(true);
   const [selectedCategory, setSelectedCategory] = useState(null)
   const [categoryId, setCategoryId] = useState(null)
 
-  const { products, hasMore, loading } = useProducts({page, categoryId})
+  const { products, loading, newDataLength } = useProducts({page, categoryId})
+
+  useEffect(() => {
+    if (page === 1) {
+      setHasMore(true);
+    }
+    if (page > 1 && newDataLength <20) {
+      setHasMore(false)
+    }
+  }, [newDataLength, page, loading])
 
   const loadMoreRef = useInfiniteScroll({
     loading,

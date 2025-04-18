@@ -5,7 +5,8 @@ export const useProducts = ({page = 1, categoryId =null, limit = 20}) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-  const [hasMore, setHasMore] = useState(true);
+
+  const [newDataLength, setNewDataLength] = useState(0);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,8 +20,7 @@ export const useProducts = ({page = 1, categoryId =null, limit = 20}) => {
             setProducts((prev) => {
                 return page === 1 ? products : [...prev, ...products];
             });
-
-            setHasMore(products.length === limit)
+            setNewDataLength(products.length);
             setError(null);
 
         } catch (err) {
@@ -32,6 +32,6 @@ export const useProducts = ({page = 1, categoryId =null, limit = 20}) => {
     fetchData();
   }, [page, categoryId]);
 
-  return {products, loading, error, hasMore}
+  return {products, loading, error, newDataLength}
 }
 
