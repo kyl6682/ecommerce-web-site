@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useState } from "react"
-import { getAllProducts } from "../api/products";
+import { getProducts } from "../api/products";
 
 export const useProducts = () => {
   const [products, setProducts] = useState([]);
@@ -12,7 +12,7 @@ export const useProducts = () => {
         setLoading(true);
 
         try {
-            const data = await getAllProducts();
+            const data = await getProducts();
 
             setProducts(data);
             setError(null);
