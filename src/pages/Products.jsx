@@ -5,7 +5,7 @@ import ProductCards from '../components/common/ProductCards'
 import BreadCrumbs from '../components/products/BreadCrumbs'
 import { useProducts } from '../hooks/useProducts'
 import SidebarFilter from '../components/products/SidebarFilter'
-import { useSearchParams } from 'react-router-dom'
+import useInfiniteScroll from '../hooks/useInfiniteScroll'
 
 const PageWrapper = styled(Wrapper)`
   flex-direction: column;
@@ -19,31 +19,45 @@ const ContentWrapper = styled(Wrapper)`
   gap: 40px;
 `
 const ProductsPage = () => {
+  const [page, setPage] = useState(1)
   const [selectedCategory, setSelectedCategory] = useState(null)
-  const { products, loading } = useProducts()
+  const [categoryId, setCategoryId] = useState(null)
 
-  const [searchParams] = useSearchParams()
-  const queryCategory = searchParams.get('category')
+  const { products, hasMore, loading } = useProducts({page, categoryId})
 
-  const effectiveCategory = selectedCategory || queryCategory
+  const loadMoreRef = useInfiniteScroll({
+    loading,
+    hasMore,
+    onLoadMore: () => setPage((prev) => prev + 1),
+  })
 
-  const filteredProducts = selectedCategory
-    ? products.filter((p) => p.category.name === selectedCategory)
-    : products
-
+  const handleCategoryChange = (category) => {
+    if (!category) {
+      setSelectedCategory(null)
+      setCategoryId(null)
+      setPage(1)
+    } else {
+      setSelectedCategory(category.name)
+      setCategoryId(category.id)
+      setPage(1)
+    }
+  }
 
   return (
     <PageWrapper>
-      <BreadCrumbs category={effectiveCategory || 'All Products'} />
+      <BreadCrumbs category={selectedCategory || 'All Products'} />
       <ContentWrapper>
         <SidebarFilter
           selectedCategory={selectedCategory}
-          setSelectedCategory={setSelectedCategory}
+          onChangeCategory={handleCategoryChange}
         />
         {loading ? (
           <p>로딩 중...</p>
         ) : (
-          <ProductCards items={filteredProducts} />
+          <div>
+            <ProductCards items={products} />
+            <div ref={loadMoreRef} style={{ height: 1 }} />
+          </div>
         )}
       </ContentWrapper>
     </PageWrapper>

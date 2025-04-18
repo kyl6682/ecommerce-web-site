@@ -36,14 +36,14 @@ const FilterItem = styled.button`
     border-radius: 3px;
   }
 `
-const SidebarFilter = ({ selectedCategory, setSelectedCategory }) => {
+const SidebarFilter = ({ selectedCategory, onChangeCategory }) => {
   const { categories, loading, error } = useCategories()
 
   const handleCategoryChange = (category) => {
-    if (selectedCategory === category) {
-      setSelectedCategory(null) // 선택한 카테고리가 현재 카테고리와 동일하다면 해제
+    if (selectedCategory === category.name) {
+      onChangeCategory(null) // 선택한 카테고리가 현재 카테고리와 동일하다면 해제
     } else {
-      setSelectedCategory(category)
+      onChangeCategory(category)
     }
   }
 
@@ -58,7 +58,7 @@ const SidebarFilter = ({ selectedCategory, setSelectedCategory }) => {
           return (
             <FilterItem
               key={cat.id}
-              onClick={() => handleCategoryChange(cat.name)}
+              onClick={() => handleCategoryChange(cat)}
             >
               {cat.name}
             </FilterItem>
