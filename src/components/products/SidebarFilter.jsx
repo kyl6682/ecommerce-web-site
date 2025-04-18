@@ -4,11 +4,11 @@ import { useCategories } from '../../hooks/useCategories'
 
 const SidebarWrapper = styled(Wrapper)`
   flex-direction: column;
-  width: 240px;
-  padding: 24px;
+  width: 150px;
   background-color: #fff;
   border-right: 1px solid #eee;
   gap: 24px;
+  padding-right: 20px;
 `
 
 const FilterBlock = styled.div`
@@ -19,45 +19,55 @@ const FilterBlock = styled.div`
 
 const FilterTitle = styled.h3`
   font-size: 16px;
-  font-weight: 500;
+  font-weight: 600;
+  margin-bottom: 15px;
 `
 
-const FilterItem = styled.label`
+const FilterItem = styled.button`
   display: flex;
+  line-height: 20px;
+  padding: 3px;
   align-items: center;
   gap: 8px;
   font-size: 14px;
   color: #333;
+  &:hover {
+    background-color: #ececec;
+    border-radius: 3px;
+  }
 `
+const SidebarFilter = ({ selectedCategory, setSelectedCategory }) => {
+  const { categories, loading, error } = useCategories()
 
-function SidebarFilter({ selectedBrands, setSelectedBrands }) {
-  const {categories, loading, error} = useCategories();
+  console.log('🔍 selectedCategory:', selectedCategory)
+  console.log('🔍 setSelectedCategory:', setSelectedCategory)
+  console.log('🔍 typeof setSelectedCategory:', typeof setSelectedCategory)
 
-  const handleBrandChange = (brand) => {
-    if (selectedBrands.includes(brand)) {
-      setSelectedBrands(selectedBrands.filter((b) => b !== brand))
+  const handleCategoryChange = (category) => {
+    if (selectedCategory === category) {
+      setSelectedCategory(null) // 선택한 카테고리가 현재 카테고리와 동일하다면 해제
     } else {
-      setSelectedBrands([...selectedBrands, brand])
+      setSelectedCategory(category)
     }
   }
 
-  if (loading) return <p>Loading filters...</p>
-  if (error) return <p>Error loading filters</p>
+  if (loading) return <p>상품을 불러오고 있습니다.</p>
+  if (error) return <p>상품 불러오기에 실패했습니다.</p>
 
   return (
     <SidebarWrapper>
       <FilterBlock>
         <FilterTitle>Category</FilterTitle>
-        {categories.map((cat) => (
-          <FilterItem key={cat.id}>
-            <input
-              type="checkbox"
-              checked={selectedBrands.includes(cat.name)}
-              onChange={() => handleBrandChange(cat.name)}
-            />
-            {cat.name}
-          </FilterItem>
-        ))}
+        {categories.map((cat) => {
+          return (
+            <FilterItem
+              key={cat.id}
+              onClick={() => handleCategoryChange(cat.name)}
+            >
+              {cat.name}
+            </FilterItem>
+          )
+        })}
       </FilterBlock>
     </SidebarWrapper>
   )

@@ -37,7 +37,7 @@ const BlackFillButton = styled.button`
 `
 
 const ProductCard = ({ product }) => {
-  const [isFavorite, setIsFavorite] = useState(false)
+  const [isFavorite, setIsFavorite] = useState(false);
 
   return (
     <ItemWrapper>

@@ -8,7 +8,6 @@ import Favorites from './pages/Favorites'
 import Cart from './pages/Cart'
 import MyPage from './pages/MyPage'
 import { Helmet } from 'react-helmet'
-import ProductCategoryPage from './pages/ProductCategoryPage'
 
 function App() {
   return (
@@ -25,7 +24,7 @@ function App() {
         <Route path='/' element={<Layout />}>
           <Route path='/' element={<Home />} />
           <Route path='/products' element={<Products />} />
-          <Route path='/category/:category' element={<ProductCategoryPage />} />
+          <Route path='/category/:category' element={<Products />} />
           <Route path='/products:id' element={<Product />} />
           <Route path='/favorites' element={<Favorites />} />
           <Route path='/my-page' element={<MyPage />} />

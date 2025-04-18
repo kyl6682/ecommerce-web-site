@@ -2,9 +2,10 @@ import styled from 'styled-components'
 import { Wrapper } from '../styles/CommonStyle'
 import { useState } from 'react'
 import ProductCards from '../components/common/ProductCards'
-import SidebarFilter from '../components/products/SidebarFilter'
 import BreadCrumbs from '../components/products/BreadCrumbs'
 import { useProducts } from '../hooks/useProducts'
+import SidebarFilter from '../components/products/SidebarFilter'
+import { useSearchParams } from 'react-router-dom'
 
 const PageWrapper = styled(Wrapper)`
   flex-direction: column;
@@ -17,28 +18,33 @@ const ContentWrapper = styled(Wrapper)`
   align-items: flex-start;
   gap: 40px;
 `
+const ProductsPage = () => {
+  const [selectedCategory, setSelectedCategory] = useState(null)
+  const { products, loading } = useProducts()
 
-function ProductsPage() {
-  const [selectedBrands, setSelectedBrands] = useState([])
+  const [searchParams] = useSearchParams()
+  const queryCategory = searchParams.get('category')
 
-  // 실제 상품 데이터 불러오기
-  const {products} = useProducts()
+  const effectiveCategory = selectedCategory || queryCategory
 
-  // 중복 없는 카테고리 이름만 추출
-  const brands = products
-    ? Array.from(new Set(products.map(p => p.category?.name).filter(Boolean)))
-    : []
+  const filteredProducts = selectedCategory
+    ? products.filter((p) => p.category.name === selectedCategory)
+    : products
+
 
   return (
     <PageWrapper>
-      <BreadCrumbs category="All Products" />
+      <BreadCrumbs category={effectiveCategory || 'All Products'} />
       <ContentWrapper>
         <SidebarFilter
-          brands={brands}
-          selectedBrands={selectedBrands}
-          setSelectedBrands={setSelectedBrands}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
         />
-        <ProductCards selectedBrands={selectedBrands} />
+        {loading ? (
+          <p>로딩 중...</p>
+        ) : (
+          <ProductCards items={filteredProducts} />
+        )}
       </ContentWrapper>
     </PageWrapper>
   )
