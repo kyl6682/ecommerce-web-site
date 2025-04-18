@@ -1,7 +1,7 @@
 import styled from "styled-components";
-import useFetch from '../../hooks/useFetch'
 import ProductCard from './ProductCard'
 import { Wrapper } from '../../styles/CommonStyle'
+import { useProducts } from "../../hooks/useProducts";
 
 const ListWrapper = styled(Wrapper)`
   flex-wrap: wrap;
@@ -9,9 +9,7 @@ const ListWrapper = styled(Wrapper)`
 `
 
 function ProductCards({ selectedBrands }) {
-  const { data: products, loading, error } = useFetch(
-    'https://api.escuelajs.co/api/v1/products'
-  )
+  const {products, loading, error} = useProducts();
 
   if (loading) return <p>Loading...</p>
   if (error) return <p>Error loading products</p>
