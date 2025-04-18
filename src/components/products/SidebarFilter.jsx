@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { Wrapper } from '../../styles/CommonStyle'
-import useFetch from '../../hooks/useFetch'
+import { useCategories } from '../../hooks/useCategories'
 
 const SidebarWrapper = styled(Wrapper)`
   flex-direction: column;
@@ -31,7 +31,7 @@ const FilterItem = styled.label`
 `
 
 function SidebarFilter({ selectedBrands, setSelectedBrands }) {
-  const { data: categories, loading, error } = useFetch('https://api.escuelajs.co/api/v1/categories')
+  const {categories, loading, error} = useCategories();
 
   const handleBrandChange = (brand) => {
     if (selectedBrands.includes(brand)) {

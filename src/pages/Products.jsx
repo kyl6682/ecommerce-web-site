@@ -4,7 +4,7 @@ import { useState } from 'react'
 import ProductCards from '../components/common/ProductCards'
 import SidebarFilter from '../components/products/SidebarFilter'
 import BreadCrumbs from '../components/products/BreadCrumbs'
-import useFetch from '../hooks/useFetch'
+import { useProducts } from '../hooks/useProducts'
 
 const PageWrapper = styled(Wrapper)`
   flex-direction: column;
@@ -22,9 +22,7 @@ function ProductsPage() {
   const [selectedBrands, setSelectedBrands] = useState([])
 
   // 실제 상품 데이터 불러오기
-  const { data: products } = useFetch(
-    'https://api.escuelajs.co/api/v1/products'
-  )
+  const {products} = useProducts()
 
   // 중복 없는 카테고리 이름만 추출
   const brands = products
