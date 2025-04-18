@@ -39,10 +39,6 @@ const FilterItem = styled.button`
 const SidebarFilter = ({ selectedCategory, setSelectedCategory }) => {
   const { categories, loading, error } = useCategories()
 
-  console.log('🔍 selectedCategory:', selectedCategory)
-  console.log('🔍 setSelectedCategory:', setSelectedCategory)
-  console.log('🔍 typeof setSelectedCategory:', typeof setSelectedCategory)
-
   const handleCategoryChange = (category) => {
     if (selectedCategory === category) {
       setSelectedCategory(null) // 선택한 카테고리가 현재 카테고리와 동일하다면 해제
