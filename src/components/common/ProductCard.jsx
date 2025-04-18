@@ -3,7 +3,7 @@ import { Wrapper } from '../../styles/CommonStyle'
 import Favorite from '../../assets/icons/Favorite'
 import { useState } from 'react'
 
-const ItemWrapper = styled(Wrapper)`
+export  const ItemWrapper = styled(Wrapper)`
   flex-direction: column;
   background-color: #f6f6f6;
   border-radius: 9px;

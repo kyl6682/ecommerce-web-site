@@ -21,17 +21,17 @@ const ContentWrapper = styled(Wrapper)`
 `
 const ProductsPage = () => {
   const [page, setPage] = useState(1)
-  const [hasMore, setHasMore] = useState(true);
+  const [hasMore, setHasMore] = useState(true)
   const [selectedCategory, setSelectedCategory] = useState(null)
   const [categoryId, setCategoryId] = useState(null)
 
-  const { products, loading, newDataLength } = useProducts({page, categoryId})
+  const { products, loading, newDataLength } = useProducts({ page, categoryId })
 
   useEffect(() => {
     if (page === 1) {
-      setHasMore(true);
+      setHasMore(true)
     }
-    if (page > 1 && newDataLength <20) {
+    if (page > 1 && newDataLength < 20) {
       setHasMore(false)
     }
   }, [newDataLength, page, loading])
@@ -62,14 +62,10 @@ const ProductsPage = () => {
           selectedCategory={selectedCategory}
           onChangeCategory={handleCategoryChange}
         />
-        {loading ? (
-          <p>로딩 중...</p>
-        ) : (
-          <div>
-            <ProductCards items={products} />
-            <div ref={loadMoreRef} style={{ height: 1 }} />
-          </div>
-        )}
+        <div>
+          <ProductCards items={products} loading={loading} />
+          <div ref={loadMoreRef} style={{ height: 1 }} />
+        </div>
       </ContentWrapper>
     </PageWrapper>
   )
